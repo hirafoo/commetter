@@ -1,0 +1,28 @@
+<div id="intro">
+    色んな人の、色んなサイトへ向けたTwitterを集めてみました。
+    <p>あなたのお気に入りのサイトはどんなTwitterがされているでしょうか？</p>
+</div>
+<div id="left">
+    <h3>使い方</h3>
+    <ul>
+        <li><p>メニューの「ログイン」を押すとTwitterに飛びます。IDとパスワードを入れると、このサイトに戻ってきます。</p></li>
+        <li><p><span class="st">「Twitterでこのサイトについてつぶやきたい！」</span>というサイトを、「サイト登録」から登録します。</p></li>
+        <li><p>「サイト一覧」に登録したサイトが現れるので、そのサイトについて好きな事をつぶやいてください。</p></li>
+        <li><p>つぶやいた内容は、このサイトとTwitterの両方に投稿されます。</p></li>
+    </ul>
+</div>
+<div id="right">
+    <h3>最近登録されたサイト</h3>
+    [%- WHILE (s = new_sites.next) %]
+    <li class="border">[%- link_to(s.name, { href => s.url }) %]</li>
+    [%- END %]
+    <br /><br />
+    <h3>最近投稿されたコメント</h3>
+    <ul>
+        [%- WHILE (c = new_comments.next) %]
+        <li class="border">[% link_to('a', { img => c.guest_icon, href => 'http://twitter.com/' _ c.guest_name })  %]
+        [% link_to(c.comment, { href => '/site/comment/' _ c.site_id}) %]</li>
+        [%- END %]
+    </ul>
+</div>
+

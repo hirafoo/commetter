@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="author" content="Luka Cvrk (www.solucija.com)" />
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <link rel="shortcut icon" href="/image/favicon.ico" />
+        <link rel="stylesheet" href="/css/style.css" type="text/css" />
+        <title>こめったー - [% page_title ? page_title : 'あのサイトに向けてTwitter！' %]</title>
+    </head>
+    <body>
+        <div id="content">
+            <div class="logo">
+                [%- link_to('', {href => "/", img => "/image/logo.gif", title => "こめったー"}) %]
+            </div>
+            <ul id="top">
+                <li>[% link_to('HOME',       { href => '/',              class => top }) %]</li>
+                <li>[% link_to('作者',       { href => '/authors',       class => authors }) %]</li>
+                <li>[% link_to('サイト登録', { href => '/site/register', class => register }) %]</li>
+                <li>[% link_to('サイト一覧', { href => '/site/list',     class => list }) %]</li>
+                [%- IF session.twitter -%]
+                <li>[% link_to('ログアウト', { href => '/logout' }) %]</li>
+                <li><a href="http://twitter.com/home" target="_blank">Twitter</a></li>
+                [%- ELSE -%]
+                <li>[% link_to('ログイン',   { href => '/login2twitter' }) %]</li>
+                [%- END -%]
+            </ul>
+            <div id="center">
+            [%- content %]
+            </div>
+            <div id="footer">
+                <p><a target="_blank" href="http://www.stylishtemplate.com" title="Website Templates">Website Templates</a> by <a title="Free CSS Templates" href="http://www.solucija.com/">Solucija</a> &middot; Released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Licence</a></p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+                var pageTracker = _gat._getTracker("UA-3287586-10");
+                pageTracker._trackPageview();
+                } catch(err) {}</script>
+        </body>
+    </html>

@@ -1,0 +1,18 @@
+View::Template:
+  INCLUDE_PATH:
+    - __path_to(root/template)__
+    - __path_to(root/template/default)__
+  PRE_PROCESS: macro.txt
+  DEBUG: 1
+  ABSOLUTE: 1
+  WRAPPER: wrapper.tt
+twitter:
+  traits :
+        - API::REST
+        - OAuth
+  consumer_key    : 
+  consumer_secret : 
+  callback        : http://commetter.net/callback
+session:
+  dir: /tmp/ram/commetter
+  name: commetter

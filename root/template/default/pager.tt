@@ -1,0 +1,12 @@
+<div class="pager">
+    [%- IF pager.previous_page -%]
+    <a href="[% uri %]?page=[% pager.previous_page %]">前の10件</a>
+    [%- ELSE -%]
+    前の10件
+    [%- END -%] | 
+    [%- IF pager.next_page -%]
+    <a href="[% uri %]?page=[% pager.next_page %]" rel="next">次の10件</a>
+    [%- ELSE -%]
+    次の10件
+    [%- END -%]
+</div>

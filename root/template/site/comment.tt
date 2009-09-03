@@ -1,0 +1,18 @@
+<h3>サイトに向けてTwitterからコメントを送信します。</h3>
+<p>好きなコメントを入力してください。コメントはTwitterにも投稿されます。</p>
+サイト：[% link_to(site.name, { href => site.url, target => "_blank" }) %]
+<p>
+[% show_error(error) %]
+<form method="post" action="/site/comment/[% site.id %]">
+    コメント：<input class="text" type="text" name="comment" />
+    <input type="submit" value="コメントする" />
+</form>
+</p>
+<br />
+<h4>コメント一覧</h4>
+[%- INCLUDE pager.tt %]<br />
+[%- WHILE (c = comments.next) -%]
+<p>[% link_to(c.guest_name, { href => 'http://twitter.com/' _ c.guest_name, target="_blank" }) %] ＜ <span class="comment">[% c.comment | html %]</span></p>
+[%- END -%]
+<br />
+[%- INCLUDE pager.tt %]

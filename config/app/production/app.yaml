@@ -1,0 +1,6 @@
+db:
+  dsn: dbi:mysql:commetter
+  username: root
+  password: ~
+server:
+  module: FCGI

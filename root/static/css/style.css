@@ -1,0 +1,68 @@
+/*
+project: watchthis!
+author: luka cvrk (www.solucija.com)
+*/
+/* global reset */
+*{ margin: 0; padding: 0; }*
+:focus, :active { outline: 0; }
+body { font: .9em "MS PGothic"; background: #fff url(/image/bg.gif) repeat-x; color: #333; }
+a { color: #A82A15; text-decoration: none; }
+img { border: 0; }
+.text { width: 550px; margin: 0 10px; }
+.submit { width: 70px; }
+h1 {  float: left; margin: 20px 0 50px; font-size: 4em; color: #fff; }
+h2 { font-size: 2.4em; font-weight: normal; margin: 0 0 20px; }
+h2 a:hover { background: #A82A15; color: #fff; }
+h3 { font-size: 1.5em; font-weight: normal; margin: 0 0 20px; }
+h3 a:hover { background: #A82A15; color: #fff; }
+h4 { font-size: 1.3em; font-weight: normal; margin: 5px 5px; }
+h4 a:hover { background: #A82A15; color: #fff; }
+h5 { font-size: 1.1em; font-weight: normal; margin: 5px 5px; }
+h5 a:hover { background: #A82A15; color: #fff; }
+.hr { color: #ccc; }
+.st { color: #f40; }
+p  { margin: 5px 0 15px; line-height: 1.6em; }
+#content { margin: 0 auto; width: 900px; }
+#top { float: right; margin: 38px 0 30px 0;}
+#top li { list-style: none; display: inline; }
+#top li a { float: left; padding: 6px 2px; margin: 3px 7px 0 0; color: #ccc; }
+#top li a.current { color: #fff; background: #A82A15; }
+#top li a:hover { background: #808080; color: #fff; }
+#intro { clear: both; padding: 15px 0 1px 20px; border: 1px solid #dedede; font-size: 1.3em; background: #eee; margin: 0 0 30px; }
+#left { float: left; width: 500px; margin: 0 0 15px; }
+#center { float: left; width: 900px; min-height: 400px; height: auto !important; height: 400px; margin: 0 0 15px; }
+#right { float: right; width: 280px; }
+#right h3 { border-bottom: 1px solid #ccc; margin: 0 0 10px; }
+#right img { margin: 0 3px 3px 0; border: 2px solid #eee; padding: 2px; }
+#right li { list-style: none; }
+#right li a { display: block; padding: 5px 5px; }
+#footer { clear: both; padding: 15px 0; border-top: 1px solid #ccc; }
+#r { float: right; }
+
+.border { border-bottom: 1px solid #ccc; }
+.list {
+    width: 720px;
+    margin: 10px;
+    padding: 5px 5px;
+    border: 5px solid #FFF;
+    background-color: #EEEEEE;
+}
+
+.list th {
+    background:transparent url(/image/table.gif) repeat scroll 0 0;
+    border:5px solid #FFF;
+    font-weight:100;
+    text-align:center;
+}
+
+.list td {
+    border: 5px solid #FFF;
+    margin: 10px 10px;
+}
+
+.logo { float: left; margin: 13px 0 50px; font-size: 4em; color: #fff; }
+.pager { margin: 7px 3px;  float: right; }
+.pager a:hover { background: #A82A15; color: #fff; }
+.cover { width: 720px; }
+.error { color: #f00; }
+.comment { background: #eee }

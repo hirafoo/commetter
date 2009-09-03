@@ -1,0 +1,8 @@
+db:
+  dsn: dbi:mysql:commetter_development
+  username: root
+  password: ~
+server:
+  module: ServerSimple
+  args:
+    port: 3000

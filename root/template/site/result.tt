@@ -1,0 +1,4 @@
+<p>[%- message %]<p>
+[%- IF link -%]
+[%- link_to('戻る', { href => link}) -%]
+[%- END -%]

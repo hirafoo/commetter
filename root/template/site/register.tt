@@ -1,0 +1,6 @@
+<h3>呟きたい対象のサイトを登録します。</h3>
+<p>サイトのURLを入力してください。</p>
+<form method="post" action="/site/register">
+    URL:<input class="text" type="text" name="url" />
+    <input class="submit" type="submit" value="送信" />
+</form>

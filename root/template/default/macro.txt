@@ -1,0 +1,10 @@
+[%- USE LinkTo -%]
+[%- MACRO link_to(text, args) BLOCK -%]
+[%- args = args ? args : {} -%]
+[%- LinkTo.link_to(text, args) -%]
+[%- END -%]
+[%- MACRO show_error(str) BLOCK -%]
+[%- IF str -%]
+<p><span class="error">[% str %]</p></span>
+[%- END -%]
+[%- END -%]
