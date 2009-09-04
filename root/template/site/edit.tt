@@ -1,7 +1,11 @@
 <h3>サイトの名前を編集します。</h3>
+[%- IF session.twitter -%]
 <p>サイト名を入力してください。</p>
 [% show_error(error) %]
 <form method="post" action="/site/edit/[% site.id %]">
     <input class="text" type="text" name="name" value="[%- site.name %]" />
     <input class="submit" type="submit" value="送信" />
 </form>
+[%- ELSE %]
+<p>サイト名を編集するにはログインしてください。</p>
+[%- END %]

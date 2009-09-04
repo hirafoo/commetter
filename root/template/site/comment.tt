@@ -3,10 +3,14 @@
 サイト：[% link_to(site.name, { href => site.url, target => "_blank" }) %]
 <p>
 [% show_error(error) %]
+[%- IF session.twitter -%]
 <form method="post" action="/site/comment/[% site.id %]">
     コメント：<input class="text" type="text" name="comment" />
     <input type="submit" value="コメントする" />
 </form>
+[%- ELSE %]
+<p>コメントをするにはログインしてください。</p>
+[%- END %]
 </p>
 <br />
 <h4>コメント一覧</h4>
