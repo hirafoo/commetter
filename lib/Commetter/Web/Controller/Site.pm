@@ -53,6 +53,7 @@ sub post_edit {
     my $site = Commetter::Model::Site->find_by(id => $params->{id}) or return not_found;
     my $name = $params->{name} or return { list  => 'current', site => $site, error => "入力が空白です。" };
     $site->name($name);
+    $site->edited_by($tw->{screen_name});
     $site->update;
     { link => '/site/list', list  => 'current', template => "result", message => "サイト名を更新しました。" };
 }
@@ -64,7 +65,7 @@ sub post_register {
     $url = $url->{url};
     {
         link     => '/site/register',
-        message  => Commetter::Model::Site->register($url),
+        message  => Commetter::Model::Site->register($url, $tw),
         register => 'current',
         template => "result",
         page_title => 'サイト登録',

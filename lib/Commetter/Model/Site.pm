@@ -6,7 +6,7 @@ use HTML::TagParser;
 use LWP::UserAgent;
 
 sub register {
-    my ($url) = @args;
+    my ($url, $tw) = @args;
 
     return '無効な入力です。入力したURLを確認してください。' unless $url;
 
@@ -23,6 +23,7 @@ sub register {
     model->set(site => {
         url  => $url,
         name => $title,
+        registerd_by => $tw->{screen_name},
     });
     return 'サイトを登録しました。サイト一覧から探して、コメントを投稿できます。';
 }

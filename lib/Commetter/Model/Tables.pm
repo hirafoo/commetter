@@ -102,6 +102,8 @@ install_model site => schema {
     id;
     url;
     string 'name';
+    string 'edited_by';
+    string 'registerd_by';
     common_columns;
     schema_options create_sql_attributes => {
         mysql => 'TYPE=InnoDB',
