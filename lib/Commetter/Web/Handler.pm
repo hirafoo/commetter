@@ -38,7 +38,7 @@ sub handler {
         return $response;
     }
 
-    $res->{uri} = $req->uri;
+    $res->{uri} ||= $req->uri;
     $res->{uri} =~ s/\?.+//;
     $res->{params} = $params;
 
