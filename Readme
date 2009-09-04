@@ -1,1 +1,5 @@
-後でかく
+-how to work it
+
+% mysql -u root -e 'create database commetter_development'
+% ./script/handle_table.pl -c
+% ./script/server.pl
