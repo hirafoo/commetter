@@ -49,6 +49,7 @@ sub edit {
 }
 sub post_edit {
     my ($req, $params) = @args;
+    my $tw = $req->session->get('twitter') or return { redirect => "/login2twitter" };
     my $site = Commetter::Model::Site->find_by(id => $params->{id}) or return not_found;
     my $name = $params->{name} or return { list  => 'current', site => $site, error => "入力が空白です。" };
     $site->name($name);
@@ -59,6 +60,7 @@ sub post_edit {
 sub register { { register  => 'current', page_title => 'サイト登録' } }
 sub post_register {
     my ($req, $url) = @args;
+    my $tw = $req->session->get('twitter') or return { redirect => "/login2twitter" };
     $url = $url->{url};
     {
         link     => '/site/register',
