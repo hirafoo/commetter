@@ -6,7 +6,7 @@ sub index { not_found }
 
 sub list {
     my ($req, $params) = @args;
-    $params->{order} = { id => 'desc', };
+    $params->{order} = {id => 'desc',};
     my ($result, $pager) = Commetter::Model::Site->list($params);
     { list  => 'current', pager => $pager, sites => $result, uri => '/site/list', page_title => 'サイト一覧', }
 }
@@ -14,7 +14,9 @@ sub list {
 sub comment {
     my ($req, $params) = @args;
     my $site = Commetter::Model::Site->find_by(id => $params->{id}) or return not_found;
-    my ($comments, $pager) = Commetter::Model::Comment->list({site_id => $site->id, page => $params->{page}});
+    my ($comments, $pager) = Commetter::Model::Comment->list(
+        {site_id => $site->id, page => $params->{page}, order => {id => 'desc', }, }
+    );
     { list  => 'current', site => $site, comments => $comments, pager => $pager, page_title => 'コメント', };
 }
 sub post_comment {
