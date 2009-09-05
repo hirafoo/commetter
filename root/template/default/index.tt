@@ -20,9 +20,8 @@
     <h3>最近投稿されたコメント</h3>
     <ul>
         [%- WHILE (c = new_comments.next) %]
-        <li class="border">[% link_to('a', { img => c.guest_icon, href => 'http://twitter.com/' _ c.guest_name })  %]
+        <li class="border">[% link_to('a', { class => 'icon', img => c.guest_icon, href => 'http://twitter.com/' _ c.guest_name })  %]
         [% link_to(c.comment, { href => '/site/comment/' _ c.site_id}) %]</li>
         [%- END %]
     </ul>
 </div>
-
