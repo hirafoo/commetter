@@ -1,10 +1,10 @@
 <p><img src="/image/hirafoo.png" title="ひらふー" /></p>
 <h3>名前</h3>
-<p>twitter id : <a href="http://twitter.com/hirafoo" target="_blank" />hirafoo</a> / ひらふー</p>
+<p class="hover">twitter : <a href="http://twitter.com/hirafoo" target="_blank" />hirafoo</a> / ひらふー</p>
 <h3>メール</h3>
 <p><img src="/image/mail.gif" alt="mail address" title="mail address" /></p>
 <h3>自己紹介</h3>
 <p>perl/rubyで何か作ってはサイトやプログラムを晒してます。</p>
 <h3>他に作ったもの</h3>
-<a href="http://niget.net/" target="_blank" />にげっと</a>
-ニコニコ動画の本体（flv等）のダウンロードが出来ます。
+<p class="hover"><a href="http://niget.net/" target="_blank" />にげっと</a>
+ニコニコ動画の本体（flv等）のダウンロードが出来ます。</p>

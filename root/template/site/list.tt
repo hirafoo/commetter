@@ -4,8 +4,8 @@
 <table class="list">
 [%- WHILE (s = sites.next) %]
 <tr><td>
-<p><h4>[%- link_to(s.name, { href => s.url, target => "_blank", }) %]</h4></p>
-<p><h5>[%- link_to("コメントする", { href => "/site/comment/${s.id}", }) %] / 
+<p><h4 class="hover">[%- link_to(s.name, { href => s.url, target => "_blank", }) %]</h4></p>
+<p><h5 class="hover">[%- link_to("コメントする", { href => "/site/comment/${s.id}", }) %] / 
     [%- link_to("サイト名を編集する", { href => "/site/edit/${s.id}", }) %]</h5></p>
 </td></tr>
 [%- END %]

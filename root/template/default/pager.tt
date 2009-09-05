@@ -1,4 +1,4 @@
-<div class="pager">
+<div class="pager hover">
     [%- IF pager.previous_page -%]
     <a href="[% uri %]?page=[% pager.previous_page %]">前の10件</a>
     [%- ELSE -%]
