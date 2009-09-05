@@ -14,13 +14,13 @@
 <div id="right">
     <h3>最近登録されたサイト</h3>
     [%- WHILE (s = new_sites.next) %]
-    <li class="border hover">[%- link_to(s.name, { href => s.url }) %]</li>
+    <li class="border hover">[%- link_to(s.name, { href => s.url, target => "_blank" }) %]</li>
     [%- END %]
     <br /><br />
     <h3>最近投稿されたコメント</h3>
     <ul>
         [%- WHILE (c = new_comments.next) %]
-        <li>[% link_to('a', { class => 'icon', img => c.guest_icon, href => 'http://twitter.com/' _ c.guest_name })  %]</li>
+        <li>[% link_to('', { class => 'icon', img => c.guest_icon, href => 'http://twitter.com/' _ c.guest_name, target => "_blank" })  %]</li>
         <li class="border hover">[% link_to(c.comment, { href => '/site/comment/' _ c.site_id}) %]</li>
         [%- END %]
     </ul>
