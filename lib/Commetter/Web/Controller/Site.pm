@@ -8,7 +8,7 @@ sub list {
     my ($req, $params) = @args;
     $params->{order} = { id => 'desc', };
     my ($result, $pager) = Commetter::Model::Site->list($params);
-    { list  => 'current', pager => $pager, sites => $result, page_title => 'サイト一覧', }
+    { list  => 'current', pager => $pager, sites => $result, uri => '/site/list', page_title => 'サイト一覧', }
 }
 
 sub comment {
