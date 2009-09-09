@@ -29,6 +29,7 @@
             [%- content %]
             </div>
             <div id="footer">
+                <p class="hover">created by <a href="http://hirafoo.net" target="_blank">hirafoo</a></p>
                 <p><a target="_blank" href="http://www.stylishtemplate.com" title="Website Templates">Website Templates</a> by <a title="Free CSS Templates" href="http://www.solucija.com/">Solucija</a> &middot; Released under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Licence</a></p>
             </div>
         </div>
