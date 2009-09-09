@@ -22,7 +22,7 @@
                 <li>[% link_to('ログアウト', { href => '/logout' }) %]</li>
                 <li><a href="http://twitter.com/home" target="_blank">Twitter</a></li>
                 [%- ELSE -%]
-                <li>[% link_to('ログイン',   { href => '/login2twitter' }) %]</li>
+                <li>[% link_to('Twitterにログイン',   { href => '/login2twitter' }) %]</li>
                 [%- END -%]
             </ul>
             <div id="center">
