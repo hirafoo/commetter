@@ -15,14 +15,21 @@ sub authors { { authors => 'current', page_title => '作者'} }
 sub login2twitter {
     my ($req) = @args;
 
-    my $nt = make_nt;
-    my $url = $nt->get_authorization_url(callback => config->{twitter}->{callback});
-    $req->session->set(
-        oauth => {
-            token        => $nt->request_token,
-            token_secret => $nt->request_token_secret,
-        },
-    );
+    my $url;
+    eval { # twitter.com is down ?
+        my $nt = make_nt;
+        $url = $nt->get_authorization_url(callback => config->{twitter}->{callback});
+        $req->session->set(
+            oauth => {
+                token        => $nt->request_token,
+                token_secret => $nt->request_token_secret,
+            },
+        );
+    };
+
+    if ($@) {
+        return not_found(error => 'Twitter.comがダウンしているようです。時間を置いて再度お試しください。');
+    }
 
     { redirect => $url }
 }

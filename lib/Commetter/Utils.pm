@@ -68,7 +68,7 @@ sub model { $Commetter::model }
 sub u8en { Encode::encode('utf8', shift) }
 sub u8de { Encode::decode('utf8', shift) }
 
-sub not_found { +{ template => "not_found", } }
+sub not_found { +{ template => "not_found", @_, } }
 
 sub make_nt {
     my $key = pit_get('commetter.net');
