@@ -9,11 +9,14 @@ sub register {
     my ($url, $tw) = @args;
 
     return '無効な入力です。入力したURLを確認してください。' unless $url;
+    #return '既に登録されているURLです。サイト一覧から探してみてください。'
+    #    if $self->find_by(url => $url);
+
+    if (my $site = $self->find_by(url => $url)) {
+        return '既に登録されているURLです。', $site;
+    }
 
     my $ua = LWP::UserAgent->new(timeout => 3);
-    return '既に登録されているURLです。サイト一覧から探してみてください。'
-        if $self->find_by(url => $url);
-
     my $res = $ua->get($url);
     return 'URLにアクセスできませんでした。URLが正しい場合、時間をおいて試してみてください。'
         unless $res->is_success;

@@ -68,12 +68,14 @@ sub post_register {
     my ($req, $url) = @args;
     my $tw = $req->session->get('twitter') or return { redirect => "/login2twitter" };
     $url = $url->{url};
+    my ($message, $site_registerd) = Commetter::Model::Site->register($url, $tw);
     {
         link     => '/site/register',
-        message  => Commetter::Model::Site->register($url, $tw),
+        message  => $message,
         register => 'current',
         template => "result",
         page_title => 'サイト登録',
+        site_registerd => $site_registerd,
     }
 }
 

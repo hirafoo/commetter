@@ -1,4 +1,7 @@
 <p>[%- message %]<p>
+[%- IF site_registerd -%]
+<p>[%- link_to('こちらからコメントをどうぞ。', { href => '/site/comment/' _ site_registerd.id}) -%]</p>
+[%- END -%]
 [%- IF link -%]
 [%- link_to('戻る', { href => link}) -%]
 [%- END -%]
