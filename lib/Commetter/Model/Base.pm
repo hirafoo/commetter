@@ -4,27 +4,34 @@ use Commetter::Utils;
 
 sub table { my $table = (split(/::/, $self))[-1]; lc $table }
 
-sub list {
-    my ($cond) = @args;
+sub search {
+    my ($cond, $attrs) = @args;
     $cond->{deleted} = 0;
 
-    my $order = delete $cond->{order};
-       $order = $order ? ({ %$order }) : ();
-    my $page = delete $cond->{page} || 1;
+    if ($cond->{name}) {
+        my @names = split / |　/, $cond->{name};
+        $cond = [];
+        my %_cond;
+        for my $name (@names) {
+            %_cond = (name => {like => "\%$name\%"});
+            push @$cond, %_cond;
+        }
+    }
+
+    my $page = $attrs->{page} || 1;
     my $offset = ($page == 1) ? 0 : $page * 10 - 10;
-    my $limit = delete $cond->{limit} || 10;
-    
+
     my $result = model->get($self->table => {
-        limit  => $limit,
+        where  => [ref $cond eq 'HASH' ? %$cond : @$cond],
+        limit  => $attrs->{limit} || 10,
         offset => $offset,
-        where  => [((%$cond) ? (%$cond) : ())],
-        order => $order,
+        order  => $attrs->{order} ? $attrs->{order} : (),
     });
     my $next = model->get($self->table => {
-        limit  => $limit,
+        where  => [ref $cond eq 'HASH' ? %$cond : @$cond],
+        limit  => $attrs->{limit} || 10,
         offset => $offset + 10,
-        where  => [((%$cond) ? (%$cond) : ())],
-        order => $order,
+        order  => $attrs->{order} ? $attrs->{order} : (),
     });
     return undef unless $result;
 

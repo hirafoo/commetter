@@ -6,16 +6,19 @@ sub index { not_found }
 
 sub list {
     my ($req, $params) = @args;
-    $params->{order} = {id => 'desc',};
-    my ($result, $pager) = Commetter::Model::Site->list($params);
+    my $attrs = $params;
+    my $cond = $params->{name} ? {name => $params->{name}} : {};
+    delete $attrs->{name};
+    $attrs->{order} = {id => 'desc'};
+    my ($result, $pager) = Commetter::Model::Site->search($cond, $attrs);
     { list  => 'current', pager => $pager, sites => $result, uri => '/site/list', page_title => 'サイト一覧', }
 }
 
 sub comment {
     my ($req, $params) = @args;
     my $site = Commetter::Model::Site->find_by(id => $params->{id}) or return not_found;
-    my ($comments, $pager) = Commetter::Model::Comment->list(
-        {site_id => $site->id, page => $params->{page}, order => {id => 'desc', }, }
+    my ($comments, $pager) = Commetter::Model::Comment->search(
+        {site_id => $site->id}, {page => $params->{page}, order => {id => 'desc'}}
     );
     { list  => 'current', site => $site, comments => $comments, pager => $pager, page_title => 'コメント', };
 }
@@ -26,7 +29,7 @@ sub post_comment {
     my $guest = Commetter::Model::Guest->find_by(screen_name => $tw->{screen_name})
         or return { redirect => '/login2twitter' };
 
-    my ($comments, $pager) = Commetter::Model::Comment->list({site_id => $site->id, page => $params->{page}});
+    my ($comments, $pager) = Commetter::Model::Comment->search({site_id => $site->id}, {page => $params->{page}});
     my $comment = $params->{comment} or
         return {
             site     => $site,

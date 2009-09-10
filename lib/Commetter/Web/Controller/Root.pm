@@ -5,8 +5,8 @@ use Commetter::Utils;
 sub index { 
     {
         top          => 'current',
-        new_sites    => (Commetter::Model::Site->list({limit => 5, order => {id => 'desc'}}))[0],
-        new_comments => (Commetter::Model::Comment->list({limit => 5, order => {id => 'desc'}}))[0],
+        new_sites    => (Commetter::Model::Site->search({}, {limit => 5, order => {id => 'desc'}}))[0],
+        new_comments => (Commetter::Model::Comment->search({}, {limit => 5, order => {id => 'desc'}}))[0],
     }
 }
 
@@ -28,7 +28,7 @@ sub login2twitter {
     };
 
     if ($@) {
-        return not_found(error => 'Twitter.comがダウンしているようです。時間を置いて再度お試しください。');
+        return not_found(error => 'twitter.comがダウンしているようです。時間を置いて再度お試しください。');
     }
 
     { redirect => $url }

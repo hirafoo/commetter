@@ -1,4 +1,8 @@
 <h3>これまでに登録されたサイトの一覧です。</h3>
+<form method="get" action="/site/list">
+    <input class="text" type="text" name="name" />
+    <input type="submit" value="検索" />
+</form>
 <div class="cover">
 [%- INCLUDE pager.tt %]<br />
 <table class="list">
