@@ -4,7 +4,7 @@
         <meta name="author" content="Luka Cvrk (www.solucija.com)" />
         <meta name="verify-v1" content="PbOx9zRQ5KYYfwZHJFA9HhdEGCUG4Qaf10fDyk3vddk=" />
         <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-        <link rel="shortcut icon" href="/image/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="stylesheet" href="/css/style.css" type="text/css" />
         <title>こめったー - [% page_title ? page_title : 'あのサイトに向けてTwitter！' %]</title>
     </head>
