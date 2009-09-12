@@ -28,6 +28,8 @@ sub import {
 sub config { $Commetter::config }
 
 sub p {
+    local $Data::Dumper::Indent = 1;
+    local $Data::Dumper::Terse  = 1;
     warn Dumper shift;
     my @c = caller;
     print STDERR "  at $c[1]:$c[2]\n\n";

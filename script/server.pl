@@ -10,9 +10,17 @@ use Commetter::Web::Handler;
 Commetter->setup;
 
 my %args;
-GetOptions(\%args, 'port=i',);
+GetOptions(\%args, qw/port=i trace/);
 
 my $mw = make_mw;
 my $server_config = make_server_config($mw, \%args);
+
+if ($args{trace}) {
+    no warnings 'redefine';
+    *Data::Model::Driver::DBI::start_query = sub {
+        my($c, $sql, $binds) = @_;
+        p [$sql, join ",", @$binds];
+    };
+}
 
 HTTP::Engine->new({ interface => $server_config })->run;
