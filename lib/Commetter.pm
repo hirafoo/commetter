@@ -3,10 +3,12 @@ use Data::Model::Driver::DBI;
 use Commetter::ConfigLoader;
 use Commetter::Utils;
 use Commetter::Model::Tables;
+use File::Path;
 
 our ($config, $model);
 
 sub setup {
+    mkpath(['/tmp/ram/commetter']);
     Commetter::Utils->setup_home;
     $config = {%$config, %{Commetter::ConfigLoader->load_config}};
     Commetter::Utils->setup_ip;
