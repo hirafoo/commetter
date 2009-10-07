@@ -1,6 +1,6 @@
 <h3>サイトに向けてTwitterからコメントを送信します。</h3>
 <p>好きなコメントを入力してください。コメントはTwitterにも投稿されます。</p>
-<p class="hover">サイト：[% link_to(site.name, { href => site.url, target => "_blank" }) %]</p>
+<p class="hover">サイト：[% link_to(site.name, { href => site.url, target => "_blank", rel => "nofollow", }) %]</p>
 <p>
 [% show_error(error) %]
 [%- IF session.twitter -%]
