@@ -14,7 +14,7 @@
 <div id="right">
     <h3>最近登録されたサイト</h3>
     [%- WHILE (s = new_sites.next) %]
-    <li class="border hover">[%- link_to(s.name, { href => s.url, target => "_blank", rel => "nofollow" }) %]</li>
+    <li class="border hover">[%- link_to(s.name, { href => '/site/comment/' _ s.id }) %]</li>
     [%- END %]
     <br /><br />
     <h3>最近投稿されたコメント</h3>
