@@ -36,7 +36,7 @@ sub post {
         guest_name => $guest->screen_name,
         comment    => $comment,
     });
-    $comment = join " ", $site->url, $comment, "by $comment_page";
+    $comment = join " ", $comment, $comment_page;
     $nt->update(u8de($comment));
     return 'コメントを投稿しました。';
 }
