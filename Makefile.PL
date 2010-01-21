@@ -15,6 +15,7 @@ requires 'HTTP::Engine::Middleware';
 requires 'HTTP::Session';
 requires 'HTTPx::Dispatcher';
 requires 'IO::Interface::Simple';
+requires 'Net::Twitter';
 requires 'Module::Pluggable::Fast';
 requires 'Module::Reload';
 requires 'MooseX::Types::Path::Class';
