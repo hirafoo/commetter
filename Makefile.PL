@@ -9,6 +9,7 @@ requires 'Config::Divide';
 requires 'Config::Pit';
 requires 'Data::Model';
 requires 'Data::Visitor::Callback';
+requires 'ExtUtils::Depends';
 requires 'HTML::TagParser';
 requires 'HTTP::Engine';
 requires 'HTTP::Engine::Middleware';
