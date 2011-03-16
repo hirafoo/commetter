@@ -50,7 +50,7 @@ sub path_to {
 
 sub env { $ENV{COMMETTER_ENV} || 'development' }
 
-sub ip { IO::Interface::Simple->new(shift || 'eth0')->address }
+sub ip { IO::Interface::Simple->new(shift || "venet0" || 'eth0')->address }
 sub setup_ip { config->{server}->{args}->{host} = ip }
 
 my $tz = DateTime::TimeZone->new(name => 'local');
